@@ -1,0 +1,46 @@
+version: "3.5"
+services:
+  wordpress:
+    build: ./srcs/wordpress/
+    image:  wordpress
+    ports:
+      - "8080:80"
+    restart: always
+    environment:
+      WORDPRESS_DB_HOST: db
+      WORDPRESS_DB_USER: meljira
+      WORDPRESS_DB_PASSWORD: 123
+      WORDPRESS_DB_NAME: reda
+    volumes:
+      - wordpress_data:/var/lib/mysql
+    networks:
+      - inception
+  nginx:
+    build: ./srcs/nginx/
+    image: nginx
+    ports:
+      - "80:80"
+    restart: always
+    networks:
+      - inception
+  mariadb:
+    build: ./srcs/mariadb/
+    image: mariadb
+    restart: always
+    expose:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: 123
+      MYSQL_DATABASE: meljira
+      MYSQL_USER: reda
+      MYSQL_PASSWORD: 123
+    networks:
+      - inception
+    volumes:
+      - mariadb_data:/var/lib/mysql
+
+  volumes:
+    wordpress_data:
+    mariadb_data:
+  networks:
+    inception:
