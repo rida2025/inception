@@ -2,7 +2,7 @@ services:
   
   nginx:
     container_name: nginx
-    build: ./srcs/nginx/.
+    build: ./nginx/.
     image: nginx:v1
     ports:
       - "443:443"
@@ -18,7 +18,7 @@ services:
   
   wordpress:
     container_name: wordpress
-    build: ./srcs/wordpress/.
+    build: ./wordpress/.
     image: wordpress:v1
     depends_on:
       - mariadb
@@ -32,10 +32,10 @@ services:
   
   mariadb:
     container_name: mariadb
-    build: ./srcs/mariadb/.
+    build: ./mariadb/.
     image: mariadb:v1
     volumes:
-      - mariadb:var/lib/mysql
+      - mariadb:/var/lib/mysql
     env_file:
       - .env
     networks:
@@ -48,7 +48,7 @@ volumes:
     driver: local
     driver_opts:
       type: none
-      option: bind
+      o: bind
       device: /Users/mel-jira/Desktop/inception/srcs/wordpress
 
   mariadb:
@@ -56,7 +56,7 @@ volumes:
       driver: local
       driver_opts:
         type: none
-        option: bind
+        o: bind
         device: /Users/mel-jira/Desktop/inception/srcs/mariadb
 
 networks:
