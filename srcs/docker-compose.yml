@@ -1,46 +1,64 @@
-version: "3.5"
 services:
-  wordpress:
-    build: ./srcs/wordpress/
-    image:  wordpress
-    ports:
-      - "8080:80"
-    restart: always
-    environment:
-      WORDPRESS_DB_HOST: db
-      WORDPRESS_DB_USER: meljira
-      WORDPRESS_DB_PASSWORD: 123
-      WORDPRESS_DB_NAME: reda
-    volumes:
-      - wordpress_data:/var/lib/mysql
-    networks:
-      - inception
+  
   nginx:
-    build: ./srcs/nginx/
-    image: nginx
+    container_name: nginx
+    build: ./srcs/nginx/.
+    image: nginx:v1
     ports:
-      - "80:80"
-    restart: always
-    networks:
-      - inception
-  mariadb:
-    build: ./srcs/mariadb/
-    image: mariadb
-    restart: always
-    expose:
-      - "3306:3306"
-    environment:
-      MYSQL_ROOT_PASSWORD: 123
-      MYSQL_DATABASE: meljira
-      MYSQL_USER: reda
-      MYSQL_PASSWORD: 123
-    networks:
-      - inception
+      - "443:443"
+    depends_on:
+      - wordpress
     volumes:
-      - mariadb_data:/var/lib/mysql
+      - wordpress:/var/www/html
+    networks:
+      - inception
+    env_file:
+      - .env
+    restart: always
+  
+  wordpress:
+    container_name: wordpress
+    build: ./srcs/wordpress/.
+    image: wordpress:v1
+    depends_on:
+      - mariadb
+    volumes:
+      - wordpress:/var/www/html
+    env_file:
+      - .env
+    networks:
+      - inception
+    restart: always
+  
+  mariadb:
+    container_name: mariadb
+    build: ./srcs/mariadb
+    image: mariadb:v1
+    volumes:
+      - mariadb:var/lib/mysql
+    env_file:
+      - .env
+    networks:
+      - inception
+    restart: always
 
-  volumes:
-    wordpress_data:
-    mariadb_data:
-  networks:
-    inception:
+volumes:
+  wordpress:
+    name: wordpress
+    driver: local
+    driver_opts:
+      type: none
+      option: bind
+      device: /Users/mel-jira/Desktop/inception/srcs/wordpress
+
+  mariadb:
+      name: mariadb
+      driver: local
+      driver_opts:
+        type: none
+        option: bind
+        device: /Users/mel-jira/Desktop/inception/srcs/mariadb
+
+networks:
+  inception:
+    driver: bridge
