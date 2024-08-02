@@ -49,7 +49,7 @@ volumes:
     driver_opts:
       type: none
       o: bind
-      device: /Users/mel-jira/Desktop/inception/srcs/wordpress
+      device: /home/mel-jira/Desktop/inception/srcs/wordpress
 
   mariadb:
       name: mariadb
@@ -57,7 +57,7 @@ volumes:
       driver_opts:
         type: none
         o: bind
-        device: /Users/mel-jira/Desktop/inception/srcs/mariadb
+        device: /home/mel-jira/Desktop/inception/srcs/mariadb
 
 networks:
   inception:
