@@ -32,7 +32,7 @@ services:
   
   mariadb:
     container_name: mariadb
-    build: ./srcs/mariadb
+    build: ./srcs/mariadb/.
     image: mariadb:v1
     volumes:
       - mariadb:var/lib/mysql
