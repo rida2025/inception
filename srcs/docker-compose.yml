@@ -52,12 +52,12 @@ volumes:
       device: /home/mel-jira/Desktop/inception/srcs/requirements/wordpress
 
   mariadb:
-      name: mariadb
-      driver: local
-      driver_opts:
-        type: none
-        o: bind
-        device: /home/mel-jira/Desktop/inception/srcs/requirements/mariadb
+    name: mariadb
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /home/mel-jira/Desktop/inception/srcs/requirements/mariadb
 
 networks:
   inception:
