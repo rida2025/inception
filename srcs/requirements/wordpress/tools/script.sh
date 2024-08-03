@@ -39,10 +39,10 @@ wp plugin install redis-cache --activate --allow-root
 wp plugin update --all --allow-root
 
 # Configuring PHP-FPM
-sed -i 's/listen = \/run\/php\/php7.3-fpm.sock/listen = 9000/g' /etc/php/7.3/fpm/pool.d/www.conf
+sed -i 's/listen = \/run\/php\/php7.4-fpm.sock/listen = 9000/g' /etc/php/7.3/fpm/pool.d/www.conf
 
 mkdir /run/php
 
 wp redis enable --allow-root
 
-/usr/sbin/php7.3-fpm -F
+/usr/sbin/php7.4-fpm -F
