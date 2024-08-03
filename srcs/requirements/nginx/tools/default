@@ -1,11 +1,7 @@
 server {
-    listen 443 ssl;
+    listen 8080;
 
     server_name mel-jira.42.fr;
-
-    ssl_certificate /etc/ssl/certs/mel-jira.42.fr.crt;
-    ssl_certificate_key /etc/ssl/private/mel-jira.42.fr.key;
-    ssl_protocols TLSv1.3;
 
     root /var/www/html;
     index index.php;
