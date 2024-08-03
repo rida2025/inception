@@ -18,7 +18,7 @@ wp core download --allow-root
 
 mv /var/www/html/wp-config-sample.php /var/www/html/wp-config.php
 
-mv wp-config.php /var/www/html/wp-config.php
+mv -f wp-config.php /var/www/html/wp-config.php
 
 
 # Setting Database Credentials in wp-config.php
