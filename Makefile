@@ -10,3 +10,4 @@ stop:
 	docker-compose -f ./srcs/docker-compose.yml stop
 clean:
 	docker system prune -af
+	docker volume prune -af
