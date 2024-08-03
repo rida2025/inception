@@ -6,4 +6,6 @@ COPY /conf/50-server.cnf /etc/mysql/mariadb.conf.d/
 
 COPY ./tools/script.sh /
 
+RUN mkdir -p /run/mysqld
+
 CMD ["./script.sh"]
