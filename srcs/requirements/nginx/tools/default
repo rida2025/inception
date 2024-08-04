@@ -6,6 +6,8 @@ server {
     root /var/www/html;
     index index.php;
 
+    error_page 404 /404.html;
+    
     location ~ \.php$ {
         include snippets/fastcgi-php.conf;
         fastcgi_pass wordpress:9000;

@@ -20,4 +20,5 @@ wp user create $WP_USR $WP_EMAIL --user_pass=$WP_PWD --role=$WP_ROLE --allow-roo
 #wp redis enable --allow-root
 
 sed -i 's|^listen = /run/php/php7.4-fpm.sock|listen = 9000|' /etc/php/7.4/fpm/pool.d/www.conf
+
 php-fpm7.4 -F
