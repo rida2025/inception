@@ -1,13 +1,5 @@
 server {
-    listen 80;
-    server_name mel-jira.42.fr www.mel-jira.42.fr;
-
-    # Return 403 Forbidden for all HTTP requests
-    return 403;
-}
-
-server {
-    listen 443 ssl;
+    listen 443;
 
     server_name mel-jira.42.fr www.mel-jira.42.fr;
 
@@ -24,11 +16,11 @@ server {
     index index.php;
 
     location ~ \.php$ {
-        try_files $uri =404;
+        try_files $uri = 404;
         include snippets/fastcgi-php.conf;
         fastcgi_pass wordpress:9000;
     }
-    
+
     # Logging
     access_log /var/log/nginx/access.log;
     error_log /var/log/nginx/error.log;
