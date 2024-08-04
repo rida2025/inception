@@ -9,6 +9,6 @@ RUN openssl req -x509 -sha256 -nodes -days 365 -newkey rsa:2048 \
     -out /etc/nginx/certs/CSR.csr \
     -subj "/C=US/ST=kheribga/L=kheribga/O=42/CN=mel-jira.42.fr"
 
-COPY /tools/default /etc/nginx/sites/available/
+COPY /tools/default /etc/nginx/sites-available/default
 
 CMD ["nginx", "-g", "daemon off;"]
