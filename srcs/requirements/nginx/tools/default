@@ -1,6 +1,6 @@
 server {
     listen 80;
-    server_name your_domain.com www.your_domain.com;
+    server_name mel-jira.42.fr www.mel-jira.42.fr;
 
     # Return 403 Forbidden for all HTTP requests
     return 403;
@@ -28,4 +28,8 @@ server {
         include snippets/fastcgi-php.conf;
         fastcgi_pass wordpress:9000;
     }
+    
+    # Logging
+    access_log /var/log/nginx/access.log;
+    error_log /var/log/nginx/error.log;
 }
