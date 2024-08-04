@@ -11,7 +11,7 @@ sleep 10
 
 wp core download --allow-root
 wp core config --dbhost=mariadb --dbname=$db_name --dbuser=$db_user --dbpass=$db_pwd --allow-root
-wp core install --url=$DOMAIN_NAME --title="$WP_TITLE" --admin_user=$WP_ADMIN_USR --admin_password=$WP_ADMIN_PWD --admin_email=$WP_ADMIN_EMAIL --allow-root
+wp core install --url=$DOMAIN_NAME --title="$WP_TITLE" --admin_user=$WP_ADMIN_USR --admin_password=$WP_ADMIN_PWD --admin_email=$WP_ADMIN_EMAIL --allow-root --skip-email
 wp user create $WP_USR $WP_EMAIL --user_pass=$WP_PWD --role=$WP_ROLE --allow-root
 
 #wp plugin install redis-cache --activate --allow-root
