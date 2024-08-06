@@ -1,13 +1,9 @@
 FROM debian:bullseye
 
-RUN apt update && apt upgrade -y
+RUN apt update -y
 
-RUN apt install -y vsftpd
+RUN apt install vsftpd -y
 
-RUN mkdir -p /var/run/vsftpd/
+COPY ./tools/script.sh /
 
-COPY /conf/vsftpd.conf /etc/vsftpd.conf
-
-COPY /tools/script.sh /
-
-CMD ["./script.sh"]
+CMD ["/script.sh"]
