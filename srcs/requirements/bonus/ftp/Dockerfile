@@ -7,7 +7,6 @@ RUN apt install -y vsftpd
 RUN mkdir -p /var/run/vsftpd/empty
 
 COPY /conf/vsftpd.conf /etc/vsftpd.conf
-COPY /tools/script.sh /
 
 COPY /tools/script.sh /
 
