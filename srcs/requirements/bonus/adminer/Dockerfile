@@ -4,6 +4,6 @@ RUN apt update && apt upgrade -y
 
 RUN apt install wget php php-mysql -y
 
-COPY ./script.sh /
+COPY /tools/script.sh /
 
 ENTRYPOINT ["./script.sh"]

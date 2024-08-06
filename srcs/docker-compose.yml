@@ -59,7 +59,6 @@ services:
     restart: always
     ports:
       - "21:21"
-      - "21100-21110:21100-21110"
     env_file:
       - .env
     volumes:
