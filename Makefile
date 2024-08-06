@@ -3,13 +3,13 @@ all: up
 up:
 	mkdir -p /home/mel-jira/data/mariadb
 	mkdir -p /home/mel-jira/data/wordpress
-	docker-compose -f ./srcs/docker-compose.yml up -d
+	docker-compose -f ./srcs/docker-compose.yml up
 down:
 	docker-compose -f ./srcs/docker-compose.yml down
 build:
 	mkdir -p /home/mel-jira/data/mariadb
 	mkdir -p /home/mel-jira/data/wordpress
-	docker-compose -f ./srcs/docker-compose.yml build -d
+	docker-compose -f ./srcs/docker-compose.yml build
 stop:
 	docker-compose -f ./srcs/docker-compose.yml stop
 clean:
