@@ -54,6 +54,7 @@ services:
 
   ftp:
     container_name: ftp
+    iamge: sftp:v1
     build: ./requirements/bonus/ftp/
     restart: always
     ports:
@@ -79,16 +80,16 @@ services:
 
   static_page:
     container_name: static_page
+    image: web:v1
     build: ./requirements/bonus/static_page/
     volumes:
       - wordpress:/var/www/html
-    ports:
-      - "80:80"
     networks:
       - inception
   
   cadvisor:
     container_name: cadvisor
+    image: cadvisor:v1
     build: ./requirements/bonus/cadvisor/
     ports:
       - "9091:9091"
