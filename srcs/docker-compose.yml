@@ -59,6 +59,8 @@ services:
     restart: always
     ports:
       - "21:21"
+    depends_on:
+      - wordpress
     env_file:
       - .env
     volumes:
