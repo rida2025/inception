@@ -80,7 +80,6 @@ services:
   static_page:
     container_name: static_page
     build: ./requirements/bonus/static_page/
-    restart: always
     volumes:
       - wordpress:/var/www/html
     ports:
