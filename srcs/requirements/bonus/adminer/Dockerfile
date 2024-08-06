@@ -1,9 +1,9 @@
 FROM debian:bullseye
 
-RUN apt -y update 
+RUN apt update && apt upgrade -y
 
-COPY ./tools/script.sh /
+RUN apt install wget php php-mysql -y
 
-RUN apt install wget -y && apt install php php-mysql  -y
+COPY ./script.sh /
 
-CMD ["./script.sh"]
+ENTRYPOINT ["./script.sh"]

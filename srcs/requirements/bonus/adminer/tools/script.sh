@@ -1,10 +1,5 @@
-#!bin/bash
+#!/bin/bash
 
-wget "http://www.adminer.org/latest.php" -O /var/www/html/adminer.php 
-chown -R www-data:www-data /var/www/html/adminer.php 
-chmod 755 /var/www/html/adminer.php
+wget -O index.php https://github.com/vrana/adminer/releases/download/v4.8.1/adminer-4.8.1.php
 
-cd /var/www/html
-
-rm -rf index.html
-php -S 0.0.0.0:80
+php -S 0.0.0.0:8080

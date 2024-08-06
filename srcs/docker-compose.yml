@@ -70,10 +70,11 @@ services:
   adminer:
     container_name: adminer
     build: ./requirements/bonus/adminer
+    image: adminer:v1
     restart: always
     depends_on:
       - mariadb
-    expose:
+    ports:
      - "8080:8080"
     networks:
       - inception
