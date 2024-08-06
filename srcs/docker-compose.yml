@@ -54,7 +54,7 @@ services:
 
   ftp:
     container_name: ftp
-    iamge: ftp
+    image: ftp
     build: ./requirements/bonus/ftp/
     restart: always
     ports:
