@@ -19,3 +19,14 @@ server {
         fastcgi_pass wordpress:9000;
     }
 }
+
+server {
+    listen 443;
+
+    server_name web.reda.fr;
+
+	location / {
+        root /var/www/html;
+        index main.html;
+    }
+}
