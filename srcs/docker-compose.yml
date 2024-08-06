@@ -41,6 +41,67 @@ services:
     networks:
       - inception
     restart: always
+  
+  redis:
+    container_name: radis
+    build: ./requirements/bonus/radis/
+    image: redis:v1
+    restart: always
+    ports:
+      - "6379:6379"
+    networks:
+      - inception
+
+  ftp:
+    container_name: ftp
+    build: ./requirements/bonus/fpt/
+    image: ftp/v1
+    restart: always
+    ports:
+      - "21:21"
+      - "21100-21110:21100-21110"
+    env_file:
+      - .env
+    volumes:
+      - wordpress:/var/www/html
+    networks:
+      - inception
+  
+  adminer:
+    container_name: adminer
+    build: ./requirements/bonus/adminer
+    restart: always
+    depends_on:
+      - mariadb
+    expose:
+     - "8080:8080"
+    networks:
+      - inception
+
+  static_page:
+    container_name: static_page
+    build: ./requirements/bonus/static_page/
+    image: static_page:v1
+    restart: always
+    ports:
+      - "3000:3000"
+    networks:
+      - inception
+  
+  cadvisor:
+    container_name: cadvisor
+    build: ./requirements/bonus/cadvisor/
+    image: cadvisor:v1
+    ports:
+      - "8080:8080"
+    networks:
+      - inception
+    volumes:
+      - /:/rootfs:ro
+      - /var/run:/var/run:ro 
+      - /sys:/sys:ro 
+      - /var/lib/docker/:/var/lib/docker:ro
+    restart: always
 
 volumes:
   wordpress:
