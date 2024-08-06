@@ -1,9 +1,9 @@
 FROM debian:bullseye
 
 
-RUN apt -y update && apt install -y nginx && apt install openssl -y
+RUN apt -y update && apt install -y nginx
 
-COPY /tools/* /var/www/html/
-COPY /tools/default /etc/nginx/sites-available/default
+COPY /tools/* /usr/share/nginx/html
+COPY /tools/default.conf /etc/nginx/conf.d/default.conf
 
 CMD ["nginx", "-g", "daemon off;"]
