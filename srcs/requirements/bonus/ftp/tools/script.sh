@@ -2,7 +2,7 @@
 
 service vsftpd start
 
-useradd -m youchen
+useradd -m mel-jira
 
 echo "$ftp_user:$ftp_pwd" | /usr/sbin/chpasswd
 
