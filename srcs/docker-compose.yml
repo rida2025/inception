@@ -55,7 +55,7 @@ services:
   ftp:
     container_name: ftp
     build: ./requirements/bonus/ftp/
-    iamge: sftp:v1
+    iamge: ftp:v1
     restart: always
     ports:
       - "21:21"
