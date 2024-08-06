@@ -15,7 +15,7 @@ wp core install --url=$DOMAIN_NAME --title="$WP_TITLE" --admin_user=$WP_ADMIN_US
 wp user create $WP_USR $WP_EMAIL --user_pass=$WP_PWD --role=$WP_ROLE --allow-root
 
 wp plugin install redis-cache --activate --allow-root
-sleep 10
+# sleep 10
 wp config set WP_REDIS_HOST redis --allow-root
 wp config set WP_REDIS_PORT 6379 --raw --allow-root
 wp redis enable --allow-root
