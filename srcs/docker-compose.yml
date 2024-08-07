@@ -76,7 +76,7 @@ services:
     depends_on:
       - mariadb
     ports:
-     - "8080:8080"
+     - "3000:3000"
     networks:
       - inception
 
@@ -94,7 +94,7 @@ services:
     image: cadvisor:v1
     build: ./requirements/bonus/cadvisor/
     ports:
-      - "9091:9091"
+      - "8080:8080"
     networks:
       - inception
     volumes:
