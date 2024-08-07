@@ -1,8 +1,5 @@
 include srcs/.env
 
-alls:
-	${sudo} echo 
-
 all: up
 
 up:
@@ -26,5 +23,5 @@ clean:
 	- docker builder prune -a
 
 fclean:
-	${sudo} rm -rf ${MD_VOLUME}
-	${sudo} rm -rf ${WP_VOLUME}
+	sudo rm -rf ${MD_VOLUME}
+	sudo rm -rf ${WP_VOLUME}
