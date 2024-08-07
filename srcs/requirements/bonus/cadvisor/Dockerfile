@@ -1,6 +1,11 @@
 FROM debian:bullseye
 
-RUN apt update -y
-RUN apt install wget -y && wget https://github.com/google/cadvisor/releases/download/v0.37.0/cadvisor && chmod +x cadvisor
+RUN		apt update -y
+RUN		apt -y upgrade
+RUN		apt -y install curl
 
-CMD ["./cadvisor"]
+RUN 	curl -L	https://github.com/google/cadvisor/releases/download/v0.37.5/cadvisor \
+				-o /usr/bin/cadvisor --silent
+RUN		chmod +x /usr/bin/cadvisor
+
+CMD	[ "/usr/bin/cadvisor", "-logtostderr"]

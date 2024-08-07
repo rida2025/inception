@@ -24,7 +24,7 @@ pasv_max_port=40005
 userlist_file=/etc/vsftpd.userlist" >> /etc/vsftpd.conf
 
 chown -R $ftp_user:www-data /var/www/html
-chmod -R 775 /var/www/html
+chmod -R 775 /var/www/html            
 
 service vsftpd stop
 
