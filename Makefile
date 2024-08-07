@@ -22,6 +22,6 @@ clean:
 	- docker network rm $$(docker network ls -q)
 	- docker builder prune -a
 
-fclean:
+fclean: clean
 	sudo rm -rf ${MD_VOLUME}
 	sudo rm -rf ${WP_VOLUME}
