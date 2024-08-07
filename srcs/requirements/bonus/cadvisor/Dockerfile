@@ -8,4 +8,4 @@ RUN 	curl -L	https://github.com/google/cadvisor/releases/download/v0.49.1/cadvis
 				-o /usr/bin/cadvisor --silent
 RUN		chmod +x /usr/bin/cadvisor
 
-CMD	[ "/usr/bin/cadvisor", "-logtostderr"]
+CMD	[ "/usr/bin/cadvisor"]
