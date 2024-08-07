@@ -54,7 +54,7 @@ services:
 
   ftp:
     container_name: ftp
-    image: ftp
+    image: ftp:v1
     build: ./requirements/bonus/ftp/
     restart: always
     ports:
