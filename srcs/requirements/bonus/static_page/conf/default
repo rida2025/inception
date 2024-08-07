@@ -1,10 +1,10 @@
 server {
-    listen 443;
+    listen 80;
 
     server_name web.reda.fr;
 
 	location / {
-        root /var/www/html;
+        root /tools;
         index main.html;
     }
 }

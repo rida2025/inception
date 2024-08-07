@@ -1,5 +1,7 @@
 FROM debian:bullseye
 
-COPY /tools /var/www/html/
+RUN apt update -y && apt upgrade -y && apt install nginx -y
 
-CMD ["tail", "-f"]
+COPY /tools/default /etc/nginx/sites-available/default
+
+CMD ["nginx", "-g", "daemon off;"]
