@@ -4,7 +4,7 @@ server {
     server_name web.reda.fr;
 
 	location / {
-        root /root;
+        root /var/www/html;
         index main.html;
     }
 }
