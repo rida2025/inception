@@ -1,9 +1,6 @@
 #!/bin/bash
 
-
 service vsftpd start
-
-# Add the USER, change his password and declare him as the owner of wordpress folder and all subfolders
 
 adduser $ftp_user --disabled-password
 
@@ -25,6 +22,9 @@ local_root=/var/www/html
 pasv_min_port=40000
 pasv_max_port=40005
 userlist_file=/etc/vsftpd.userlist" >> /etc/vsftpd.conf
+
+chown -R $ftp_user:www-data /var/www/html
+chmod -R 775 /var/www/html
 
 service vsftpd stop
 
