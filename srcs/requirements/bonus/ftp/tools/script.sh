@@ -14,9 +14,7 @@ echo "$ftp_user" | tee -a /etc/vsftpd.userlist
 
 # mkdir /home/$ftp_user/ftp
 
-
-# chown nobody:nogroup /home/$ftp_user/ftp
-# chmod a-w /home/$ftp_user/ftp
+chmod a-w /var/www/html
 
 # mkdir /home/$ftp_user/ftp/files
 # chown $ftp_user:$ftp_user /home/$ftp_user/ftp/files
