@@ -84,6 +84,8 @@ services:
     container_name: static_page
     image: web:v1
     build: ./requirements/bonus/static_page/
+    depends_on:
+      - wordpress
     volumes:
       - wordpress:/var/www/html
     networks:
@@ -111,7 +113,7 @@ volumes:
     driver_opts:
       type: none
       o: bind
-      device: /home/mel-jira/data/wordpress
+      device: $WP_VOLUME
 
   mariadb:
     name: mariadb

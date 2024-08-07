@@ -1,3 +1,8 @@
+include srcs/.env
+
+alls:
+	${sudo} echo 
+
 all: up
 
 up:
@@ -19,3 +24,7 @@ clean:
 	- docker volume rm $$(docker volume ls -q)
 	- docker network rm $$(docker network ls -q)
 	- docker builder prune -a
+
+fclean:
+	${sudo} rm -rf ${MD_VOLUME}
+	${sudo} rm -rf ${WP_VOLUME}
