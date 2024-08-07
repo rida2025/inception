@@ -22,4 +22,7 @@ wp redis enable --allow-root
 
 sed -i 's|^listen = /run/php/php7.4-fpm.sock|listen = 9000|' /etc/php/7.4/fpm/pool.d/www.conf
 
+chown -R www-data /var/www/html
+chmod 775 /var/www/html
+
 php-fpm7.4 -F

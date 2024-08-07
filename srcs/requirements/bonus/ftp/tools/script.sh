@@ -12,12 +12,7 @@ echo "$ftp_user:$ftp_pwd" | /usr/sbin/chpasswd
 echo "$ftp_user" | tee -a /etc/vsftpd.userlist 
 
 
-# mkdir /home/$ftp_user/ftp
-
-chmod a+w /var/www/html
-
-# mkdir /home/$ftp_user/ftp/files
-# chown $ftp_user:$ftp_user /home/$ftp_user/ftp/files
+add -aG $ftp_user www-data
 
 sed -i -r "s/#write_enable=YES/write_enable=YES/1"   /etc/vsftpd.conf
 sed -i -r "s/#chroot_local_user=YES/chroot_local_user=YES/1"   /etc/vsftpd.conf
